@@ -19,3 +19,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
+      - name: Test with pytest
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install -U pytest
+          pytest
